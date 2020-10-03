@@ -436,7 +436,7 @@ void sig_handler(int signo);
 
 void init()
 {
-	static plog::RollingFileAppender<plog::TxtFormatter> file_appender("gammylog.txt", 1024 * 1024 * 5, 1);
+	//static plog::RollingFileAppender<plog::TxtFormatter> file_appender("gammylog.txt", 1024 * 1024 * 5, 1);
 	static plog::ColorConsoleAppender<plog::TxtFormatter> console_appender;
 
 	plog::init(plog::Severity(plog::debug), &console_appender);
@@ -456,7 +456,7 @@ void init()
 		cfg["temp_step"] = 0;
 	}
 
-	plog::get()->addAppender(&file_appender);
+	//plog::get()->addAppender(&file_appender);
 	plog::get()->setMaxSeverity(plog::Severity(cfg["log_lvl"]));
 
 #ifndef _WIN32
